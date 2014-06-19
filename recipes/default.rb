@@ -27,6 +27,7 @@ if platform_family?('rhel')
   node.default['postgresql']['client']['packages'] = ['postgresql92-devel']
   node.default['postgresql']['server']['packages'] = ['postgresql92-server']
   node.default['postgresql']['contrib']['packages'] = ['postgresql92-contrib']
+  node.default['postgresql']['server']['service_name'] = "postgresql-#{node['postgresql']['version']}"
 end
 if platform_family?('debian')
   node.default['postgresql']['enable_pgdg_yum'] = false
