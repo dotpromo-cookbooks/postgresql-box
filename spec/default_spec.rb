@@ -19,7 +19,7 @@ describe 'dotpromo-postgresql-box::default' do
         node.automatic['memory']['total'] = '1024Mb'
       end
     end
-    %w(libpq-dev postgresql-9.2 postgresql-contrib-9.2 postgresql-client-9.2).each do |k|
+    %w(libpq-dev postgresql-9.3 postgresql-contrib-9.3 postgresql-client-9.3).each do |k|
       it "installs #{k}" do
         expect(chef_run).to install_package(k)
       end
@@ -31,7 +31,7 @@ describe 'dotpromo-postgresql-box::default' do
         node.automatic['memory']['total'] = '1024Mb'
       end
     end
-    %w(postgresql92-devel postgresql92-server postgresql92-contrib).each do |k|
+    %w(postgresql93-devel postgresql93-server postgresql93-contrib).each do |k|
       it "installs #{k}" do
         expect(chef_run).to install_package(k)
       end
