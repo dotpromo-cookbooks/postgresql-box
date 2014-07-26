@@ -22,12 +22,8 @@ node.set['postgresql']['config']['listen_addresses'] = 'localhost'
 node.set['postgresql']['config']['log_filename'] = 'postgresql-%Y-%m-%d_%H%M%S.log'
 node.set['postgresql']['config']['log_rotation_size'] = '10MB'
 node.set['postgresql']['config']['log_rotation_age'] = '1d'
-if platform_family?('rhel')
-  node.set['postgresql']['enable_pgdg_yum'] = true
-end
-if platform_family?('debian')
-  node.set['postgresql']['enable_pgdg_apt'] = true
-end
+node.set['postgresql']['enable_pgdg_yum'] = true if platform_family?('rhel')
+node.set['postgresql']['enable_pgdg_apt'] = true if platform_family?('debian')
 # workaround for reload attributes from postgresql cookbook after we set postgresql version
 node.from_file(run_context.resolve_attribute('postgresql', 'default'))
 
