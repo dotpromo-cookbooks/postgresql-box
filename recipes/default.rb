@@ -8,7 +8,7 @@ include_recipe 'openssl'
 
 ::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
 node.set_unless['postgresql']['password']['postgres'] = secure_password
-node.set['postgresql']['version'] = '9.3'
+node.set['postgresql']['version'] = '9.4'
 node.set['postgresql']['dir'] = '/srv/db/postgresql'
 node.set['postgresql']['pg_hba'] = [
   { type: 'local', db: 'all', user: 'postgres', addr: nil, method: 'ident' },
