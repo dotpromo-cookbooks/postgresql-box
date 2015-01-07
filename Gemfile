@@ -10,7 +10,7 @@ group :unit do
 end
 
 group :kitchen_common do
-  gem 'test-kitchen', '~> 1.2'
+  gem 'test-kitchen', github: 'test-kitchen/test-kitchen'
 end
 
 group :kitchen_vagrant do
